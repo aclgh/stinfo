@@ -18,13 +18,12 @@ app.set('view engine', 'ejs');
 app.use('/public', express.static('public'));
 
 /*steam api */
-const fs = require('fs');
 const SteamAPI = require('steamapi');
 const steam = new SteamAPI('4279AE41A700074639985D10439C3C3F');
 
 
 /*ejs*/
-var id = "76561198163756141"
+var id = "76561199201858790"
 app.get('/', (req, res) => {
     steam.getUserSummary(id).then(summary => {
         console.log(summary);
@@ -75,3 +74,9 @@ function timeAgo(timestamp) {
 /* 配置框架环境 E */
 
 
+
+
+// Web 类型云函数，只能监听 9000 端口
+app.listen(9000, () => {
+    console.log(`Server start on http://localhost:9000`);
+});

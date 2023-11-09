@@ -44,9 +44,12 @@
                         <div class="breathe-div"></div>
                         <% } %>
                 </section>
-                <p>↓查看详情</p>
+                <% if (!(summary.gameExtraInfo===undefined)) { %>
+                    <p>↓查看详情</p>
+                    <% } %>
+
         </section>
-        <% if (summary.personaState) { %>
+        <% if (!(summary.gameExtraInfo===undefined)) { %>
             <iframe class="responsive-iframe" src="https://store.steampowered.com/widget/<%= summary.gameID %>/"
                 frameborder="0"></iframe>
             <% } %>
